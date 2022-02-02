@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+  .allProducts .col-lg-3 {
+    justify-content: center;
+    display: flex;
+  }
+  .allProducts .col-lg-3 .allProducts .title {
+    text-align: center;
+  }
+  .allProducts .col-lg-3 .productCard {
+    height: 300px;
+  }
+  .allProducts .col-lg-3 .productCard:hover {
+    transform: scale(1.01);
+    transition: 0.5s all ease-in-out;
+  }
+}
