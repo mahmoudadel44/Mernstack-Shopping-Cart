@@ -1,13 +1,25 @@
-import { Card, Button, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Card, Button } from "antd";
+import { useState } from "react";
+
+import ProductModal from "../ProductModal/ProductModal";
 const ProductCard = ({ productData }) => {
   const { Meta } = Card;
-  const { Text } = Typography;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
 
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
     <>
       <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
-        <Link to={`./product/${productData.id}`}>
+        <a type="primary" onClick={showModal}>
           <Card
             hoverable
             className="productCard animate__animated animate__fadeInLeft"
@@ -36,7 +48,13 @@ const ProductCard = ({ productData }) => {
               Add To Cart
             </Button>
           </Card>
-        </Link>
+        </a>
+        <ProductModal
+          handleOk={handleOk}
+          handleCancel={handleCancel}
+          productData={productData}
+          isModalVisible={isModalVisible}
+        />
       </div>
     </>
   );
