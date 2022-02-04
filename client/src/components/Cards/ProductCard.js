@@ -18,7 +18,7 @@ const ProductCard = ({ productData }) => {
   };
   return (
     <>
-      <div className="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <div className="col-lg-5 col-md-6 col-sm-12 mb-3">
         <a type="primary" onClick={showModal}>
           <Card
             hoverable
