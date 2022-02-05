@@ -1,36 +1,34 @@
 import React from "react";
-import { Divider, Select } from "antd";
+import { Select } from "antd";
 
-const Filters = () => {
+const Filters = ({ handleFilterBySize, handleFilterBySort, size, sort }) => {
   const { Option } = Select;
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
   return (
-    <div class="card text-left">
-      <h6 class="card-header">Filters </h6>
-      <div class="card-body">
-        <p class="card-title">Number of Products :5 Product</p>
-        <h5 class="card-text mt-3">Filter</h5>
+    <div className="card">
+      <h6 className="card-header">Filters </h6>
+      <div className="card-body text-left">
+        <p className="card-title">Number of Products :5 Product</p>
+        <h5 className="card-text mt-3">Filter</h5>
         <Select
-          defaultValue="lucy"
-          style={{ width: 250 }}
-          onChange={handleChange}
+          onChange={handleFilterBySize}
+          value={size}
+          style={{width:"250px"}}
         >
           <Option value="ALL">ALL</Option>
-          <Option value="SM">SM</Option>
+          <Option value="XS">XS</Option>
           <Option value="S">S</Option>
           <Option value="M">M</Option>
           <Option value="L">L</Option>
           <Option value="XL">XL</Option>
           <Option value="XXL">XXL</Option>
         </Select>
-        <h5 class="card-text mt-3">Order</h5>
+        <h5 className="card-text mt-3">Sort</h5>
         <Select
           defaultValue="lucy"
           style={{ width: 250 }}
-          onChange={handleChange}
+          onChange={handleFilterBySort}
+          value={sort}
         >
           <Option value="latest">Latest</Option>
           <Option value="lowest">Lowest</Option>
