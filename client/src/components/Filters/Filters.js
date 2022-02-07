@@ -1,19 +1,27 @@
 import React from "react";
 import { Select } from "antd";
 
-const Filters = ({ handleFilterBySize, handleFilterBySort, size, sort }) => {
+const Filters = ({
+  handleFilterBySize,
+  handleFilterBySort,
+  size,
+  sort,
+  productsNumber,
+}) => {
   const { Option } = Select;
 
   return (
     <div className="card">
       <h6 className="card-header">Filters </h6>
       <div className="card-body text-left">
-        <p className="card-title">Number of Products :5 Product</p>
+        <p className="card-title">
+          Number of Products :{productsNumber} Product
+        </p>
         <h5 className="card-text mt-3">Filter</h5>
         <Select
           onChange={handleFilterBySize}
           value={size}
-          style={{width:"250px"}}
+          style={{ width: "250px" }}
         >
           <Option value="ALL">ALL</Option>
           <Option value="XS">XS</Option>

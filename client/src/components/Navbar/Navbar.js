@@ -28,14 +28,14 @@ const Navbar = () => {
           onClose={onClose}
           visible={visible}
         >
-          <Link to="/cart" className="cartItemResponsive mahmoud">
+          <Link to="/Cart" className="cartItemResponsive mahmoud">
             <div>
               <i className="fas fa-cart-plus mx-2"></i>
             </div>
             Orders
             <span className="cartLogo_badge mx-2">0</span>
           </Link>
-          <Link to="/" className="shopItemResponsive mahmoud">
+          <Link to="/Cart" className="shopItemResponsive mahmoud">
             Home
           </Link>
         </Drawer>
