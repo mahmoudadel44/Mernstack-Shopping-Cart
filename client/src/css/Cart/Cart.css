@@ -1,0 +1,57 @@
+.cartContent {
+  background-color: #fff;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+}
+.cartContent:hover {
+  box-shadow: rgba(99, 99, 99, 0.6) 0px 2px 8px 0px;
+}
+.cartContent .cartInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+}
+.cartContent img {
+  border-radius: 4px;
+}
+.cartContent .deleteContainer {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  color: #f00;
+  font-size: 22px;
+}
+@media (max-width: 767px) {
+  .cartContent .cartContent {
+    padding: 10px 8px;
+  }
+  .cartContent .cartContent img {
+    width: 82px;
+    height: 82px;
+  }
+  .cartContent .cartContent h5 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .cartContent .cartContent {
+    padding: 10px 4px;
+  }
+  .cartContent .cartContent img {
+    width: 55px;
+    height: 55px;
+  }
+  .cartContent .cartContent h5 {
+    font-size: 13px;
+  }
+  .cartContent .cartContent .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    width: 90%;
+    margin-left: 8px;
+  }
+}

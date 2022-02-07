@@ -2,7 +2,7 @@ import { Card, Button } from "antd";
 import { useState } from "react";
 
 import ProductModal from "../ProductModal/ProductModal";
-const ProductCard = ({ productData }) => {
+const ProductCard = ({ productData, addToCart }) => {
   const { Meta } = Card;
   const [isModalVisible, setIsModalVisible] = useState(false);
   const showModal = () => {
@@ -40,10 +40,15 @@ const ProductCard = ({ productData }) => {
               style={{ height: "90px" }}
             />
             <Button
-              to={`/product/${productData.id}`}
+              // to={`/product/${productData.id}`}
               block
               className="mt-4 btn-success text-white"
+              style={{boxShadow:"none"}}
               type="primary"
+              onClick={(e) => {
+                addToCart(productData);
+                e.stopPropagation();
+              }}
             >
               Add To Cart
             </Button>

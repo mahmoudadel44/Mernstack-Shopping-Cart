@@ -1,0 +1,58 @@
+.cartContent {
+  background-color: #fff;
+  border: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  border-radius: 4px;
+  margin-bottom:25px;
+  box-shadow: rgba(99, 99, 99, 0.4) 0px 2px 8px 0px;
+  &:hover {
+    box-shadow: rgba(99, 99, 99, 0.6) 0px 2px 8px 0px;
+  }
+  .cartInfo{
+      display: flex;
+      flex-direction: column;
+      margin-left: 18px;
+  }
+  img {
+    border-radius: 4px;
+  }
+  .deleteContainer {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    color: #f00;
+    font-size: 22px;
+  }
+
+  @media (max-width: 767px) {
+    .cartContent {
+      padding: 10px 8px;
+      img {
+        width: 82px;
+        height: 82px;
+      }
+      h5 {
+        font-size: 15px;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .cartContent {
+      padding: 10px 4px;
+      img {
+        width: 55px;
+        height: 55px;
+      }
+      h5 {
+        font-size: 13px;
+      }
+      .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        width: 90%;
+        margin-left: 8px;
+      }
+    }
+  }
+}

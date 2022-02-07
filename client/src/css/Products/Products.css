@@ -14,3 +14,6 @@
     transition: 0.5s all ease-in-out;
   }
 }
+.btn-check:focus + .btn-success, .btn-success:focus {
+  box-shadow: none;
+}
