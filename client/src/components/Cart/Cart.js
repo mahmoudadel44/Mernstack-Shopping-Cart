@@ -1,6 +1,9 @@
-import React from "react";
+import { Button } from "antd";
+import React, { useState } from "react";
 import "../../css/Cart/Cart.css";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
 const Cart = ({ cartItems, removeFromCart }) => {
+  const [showForm, setShowForm] = useState(false);
   return (
     <>
       {cartItems.map((item) => (
@@ -9,7 +12,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
           key={item.id}
         >
           <div className="d-flex">
-            <img alt="example" src={item.imgUrl} width={130} height={80} />
+            <img alt="example" src={item.image} width={130} height={80} />
 
             <div className="cartInfo">
               <h6>Name: {item.title}</h6>
@@ -22,6 +25,27 @@ const Cart = ({ cartItems, removeFromCart }) => {
           </div>
         </div>
       ))}
+      {cartItems.length !== 0 && (
+        <div className="totalContainer d-flex justify-content-between align-items-center">
+          <h6 className="fw-bold">
+            Total : $
+            {cartItems.reduce((acc, p) => {
+              return acc + p.price;
+            }, 0)}
+          </h6>
+          <div>
+            {" "}
+            <Button
+              type="primary"
+              primary="true"
+              onClick={() => setShowForm(true)}
+            >
+              Select Product
+            </Button>
+          </div>
+        </div>
+      )}
+      {showForm && <CheckoutForm />}
     </>
   );
 };
