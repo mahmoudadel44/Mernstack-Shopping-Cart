@@ -12,7 +12,7 @@ const CartScreen = ({ removeAllProducts,cartItems, removeFromCart }) => {
             : `There is ${cartItems.length} Item In Cart`}
         </h5>
         {cartItems.length > 0 && (
-          <Button type="primary" danger onClick={() => removeAllProducts()} className='my-3'>
+          <Button type="primary" danger="true" onClick={() => removeAllProducts()} className='my-3'>
             Remove All Products
           </Button>
         )}

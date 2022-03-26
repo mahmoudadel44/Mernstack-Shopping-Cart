@@ -13,6 +13,7 @@ const ProductCard = ({ productData, addToCart }) => {
     setIsModalVisible(false);
   };
 
+
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -26,9 +27,9 @@ const ProductCard = ({ productData, addToCart }) => {
             cover={
               <img
                 alt="example"
-                src={productData.imgUrl}
+                src={productData.image}
                 height="150px"
-                width="150px"
+                width="35px"
               />
             }
           >
@@ -36,14 +37,14 @@ const ProductCard = ({ productData, addToCart }) => {
             <h5 className="mt-2">${productData.price}</h5>
 
             <Meta
-              description={productData.desc.slice(1, 100) + "........."}
+              description={productData?.description.slice(1,100) + "........."}
               style={{ height: "90px" }}
             />
             <Button
               // to={`/product/${productData.id}`}
               block
               className="mt-4 btn-success text-white"
-              style={{boxShadow:"none"}}
+              style={{ boxShadow: "none" }}
               type="primary"
               onClick={(e) => {
                 addToCart(productData);

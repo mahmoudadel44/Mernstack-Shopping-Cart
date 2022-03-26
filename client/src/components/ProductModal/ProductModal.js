@@ -18,7 +18,7 @@ const ProductModal = ({
     >
       <img
         alt="example"
-        src={productData.imgUrl}
+        src={productData.image}
         height="280px"
         width="380px"
         style={{ marginLeft: "18px" }}
