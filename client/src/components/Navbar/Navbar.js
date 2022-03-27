@@ -1,59 +1,32 @@
 import React, { useState } from "react";
 import { Drawer, Button } from "antd";
 import { Link } from "react-router-dom";
-import "../../css/Navbar/Header.css";
 const Navbar = () => {
-  const [visible, setVisible] = useState(false);
-  const showDrawer = () => {
-    setVisible(true);
-  };
-
-  const onClose = () => {
-    setVisible(false);
-  };
   return (
-    <section className="ecommerceNavbar bg-dark">
-      <div className="brand animate__animated animate__fadeInDown">
-        <a className="text-white fw-bold" href="">
-          Shopping Cart
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">
+          Ecommerce App
         </a>
-      </div>
-      <div className="rightSide">
-        <Button onClick={showDrawer} className="openDrawer">
-          <i className="fas fa-bars"></i>
-        </Button>
-        <Drawer
-          title="Shopping Cart"
-          placement="left"
-          onClose={onClose}
-          visible={visible}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbarr"
         >
-          <Link to="/Cart" className="cartItemResponsive mahmoud">
-            <div>
-              <i className="fas fa-cart-plus mx-2"></i>
-            </div>
-            Orders
-            <span className="cartLogo_badge mx-2">0</span>
-          </Link>
-          <Link to="/Cart" className="shopItemResponsive mahmoud">
-            Home
-          </Link>
-        </Drawer>
-        <Link
-          to="/cart"
-          className="cartItem animate__animated animate__fadeInDown"
-        >
-          <div>
-            <i className="fas fa-cart-plus mx-2"></i>
-          </div>
-          Orders
-          <span className="cartLogo_badge mx-2">0</span>
-        </Link>
-        <Link to="/" className="shopItem animate__animated animate__fadeInDown">
-          Home
-        </Link>
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="mynavbarr">
+          <ul className="navbar-nav ms-auto ">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Link
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </section>
+    </nav>
   );
 };
 

@@ -25,13 +25,12 @@ import RootReducer from "./reducers/index";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [""],
+  whitelist: ["Cart"],
 };
 
 let middleware = [Thunk];
 
-const composeEnhancers =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const persistedReducer = persistReducer(persistConfig, RootReducer);
 

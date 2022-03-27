@@ -1,66 +1,46 @@
 import { Card, Button } from "antd";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/actions/CartActions";
 
-import ProductModal from "../ProductModal/ProductModal";
-const ProductCard = ({ productData, addToCart }) => {
+import "../Products/Products.scss";
+const ProductCard = ({ productData }) => {
   const { Meta } = Card;
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  const cartItems = useSelector((state) => state.Cart?.cartItems);
+  const dispatch = useDispatch();
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
   return (
     <>
-      <div className="col-lg-5 col-md-6 col-sm-12 mb-3">
-        <a type="primary" onClick={showModal}>
-          <Card
-            hoverable
-            className="productCard animate__animated animate__fadeInLeft"
-            cover={
-              <img
-                alt="example"
-                src={productData.image}
-                height="150px"
-                width="35px"
-              />
-            }
-          >
-            <Meta title={productData.title} />
-            <h5 className="mt-2">${productData.price}</h5>
-
-            <Meta
-              description={productData?.description.slice(1,100) + "........."}
-              style={{ height: "90px" }}
-            />
-            <Button
+      <div className="col-lg-6 allCards col-sm-12 mb-3">
+        <div
+          className="card animate__animated py-3
+            animate__fadeInLeft"
+          style={{ width: "18rem" }}
+        >
+          <img
+            alt="example"
+            src={productData.image}
+            height="160px"
+            className="m-auto"
+          />
+          <div className="card-body pb-0">
+            <h5 className="card-title">{productData.title}</h5>
+            <h5 className="mt-2 text-muted">${productData.price}</h5>
+            <p className="card-text">
+              {productData?.description.slice(1, 80) + "........."}
+            </p>
+            <button
               // to={`/product/${productData.id}`}
-              block
-              className="mt-4 btn-success text-white"
+              className="btn btn-success m-auto"
               style={{ boxShadow: "none" }}
-              type="primary"
               onClick={(e) => {
-                addToCart(productData);
+                dispatch(addToCart(cartItems, productData));
                 e.stopPropagation();
               }}
             >
               Add To Cart
-            </Button>
-          </Card>
-        </a>
-        <ProductModal
-          handleOk={handleOk}
-          handleCancel={handleCancel}
-          productData={productData}
-          isModalVisible={isModalVisible}
-        />
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

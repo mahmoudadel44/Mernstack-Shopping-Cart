@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import AllProducts from "../../data/productdata.json";
 import CartScreen from "../../pages/CartScreen";
+import {
+  removeAllProducts,
+} from "../../redux/actions/CartActions";
 import { getProducts } from "../../redux/actions/ProductActions";
 import ProductCard from "../Cards/ProductCard";
 import Filters from "../Filters/Filters";
@@ -10,40 +13,11 @@ import Filters from "../Filters/Filters";
 const Products = () => {
   const dispatch = useDispatch();
   const filteredProducts = useSelector((state) => state.Products.filteredItems);
-  // const [filteredProducts, setFilteredProducts] = useState(AllProducts);
-  const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cartItems")) || []
-  );
+  const cartItems = useSelector((state) => state.Cart.cartItems);
 
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-
-  const addToCart = (product) => {
-    let cartItemsCloned = [...cartItems];
-    let isProductExist = false;
-    cartItemsCloned.forEach((p) => {
-      if (p.id == product.id) {
-        p.qty++;
-        isProductExist = true;
-      }
-    });
-    if (!isProductExist) {
-      cartItemsCloned.push({ ...product, qty: 1 });
-    }
-    setCartItems(cartItemsCloned);
-  };
-  const removeFromCart = (product) => {
-    let clonedCartItems = [...cartItems];
-    let result = clonedCartItems.filter((p) => p.id !== product.id);
-    setCartItems(result);
-  };
-  const removeAllProducts = () => {
-    setCartItems([]);
-  };
-  useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
 
   console.log("allllll", filteredProducts);
   return (
@@ -59,7 +33,6 @@ const Products = () => {
                     <ProductCard
                       productData={product}
                       key={product.id}
-                      addToCart={addToCart}
                     />
                   ))}
               </div>
@@ -67,9 +40,6 @@ const Products = () => {
             <div className="col-lg-4 col-md-5">
               <Filters />
               <CartScreen
-                removeFromCart={removeFromCart}
-                removeAllProducts={removeAllProducts}
-                cartItems={cartItems}
               />
             </div>
           </div>
