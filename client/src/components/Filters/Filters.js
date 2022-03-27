@@ -22,8 +22,6 @@ const Filters = ({}) => {
   useEffect(() => {
     dispatch(getCategories());
   }, []);
-console.log("categories",categories)
-
   return (
     <>
       <div className="card">

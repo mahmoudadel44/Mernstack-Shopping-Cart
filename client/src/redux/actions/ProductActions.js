@@ -44,7 +44,6 @@ export const filterCategories = (products, category) => async (dispatch) => {
       category,
     });
     toast.success("getting successfully", { autoClose: 2000 });
-    console.log("hhhhhhhhhhhhhhhhhhhhhhhhh");
   } catch (err) {
     toast.error(err);
   }

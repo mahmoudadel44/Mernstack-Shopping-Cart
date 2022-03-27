@@ -3,9 +3,6 @@
     justify-content: center;
     display: flex;
 
-    .allProducts .title {
-      text-align: center;
-    }
     .productCard {
       height: 300px;
       &:hover {
@@ -15,7 +12,17 @@
     }
   }
 }
-      .btn-check:focus+.btn-success, .btn-success:focus
-      {
-        box-shadow: none;
-      }
+.btn-check:focus + .btn-success,
+.btn-success:focus {
+  box-shadow: none;
+}
+
+@media (max-width: 776px) {
+  .allCards {
+    display: flex;
+    justify-content: center !important;
+  }
+  .title {
+    text-align: center;
+  }
+}
