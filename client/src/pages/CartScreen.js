@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cart from "../components/Cart/Cart";
@@ -16,16 +15,14 @@ const CartScreen = () => {
             : `There is ${cartItems.length} Item In Cart`}
         </h5>
         {cartItems?.length > 0 && (
-          <Button
-            type="primary"
-            danger="true"
+          <button
             onClick={() => {
               dispatch(removeAllProducts());
             }}
-            className="my-3"
+            className="my-3 btn btn-danger"
           >
             Remove All Products
-          </Button>
+          </button>
         )}
       </div>
       <Cart />

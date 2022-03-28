@@ -1,10 +1,18 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Navbar from "./components/Navbar/Navbar";
 import Products from "./components/Products/Products";
 import CartScreen from "./pages/CartScreen";
+import Home from "./pages/Home";
+import NotFoundPage from "./pages/NotFound";
+import Product from "./pages/Product";
 function App() {
   return (
     <>
@@ -13,8 +21,9 @@ function App() {
           <Navbar />
         </header>
         <Routes>
-          <Route path="/" element={<Products />} />
-          {/* <Route path="/Cart" element={<CartScreen />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
       <ToastContainer />

@@ -17,6 +17,14 @@
   box-shadow: none;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
+
 @media (max-width: 776px) {
   .allCards {
     display: flex;
@@ -24,5 +32,39 @@
   }
   .title {
     text-align: center;
+  }
+}
+
+.paginationBttns {
+  width: 96%;
+  height: 50px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  a {
+    padding: 10px 16px;
+    margin: 6px;
+    border-radius: 4px;
+    color: #198754;
+    background-color: #fff;
+    border: 1px solid #198754;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid #198754;
+      color: #fff;
+      background-color: #198754;
+    }
+  }
+  .paginationActive a {
+    color: #fff;
+    background-color: green;
+    border: 1px solid #034d2a;
+  }
+
+  .paginationDisabled a {
+    color: #198754;
+    background-color: rgb(189, 183, 183);
   }
 }

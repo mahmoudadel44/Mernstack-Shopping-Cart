@@ -4,8 +4,10 @@ const initialState = {
   products: [],
   filteredItems: [],
   categories: [],
+  product: {},
   category: "",
   sort: "",
+  loading: true,
 };
 const ProductsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,6 +16,18 @@ const ProductsReducer = (state = initialState, action) => {
         ...state,
         products: action.payload,
         filteredItems: action.payload,
+        loading: false,
+      };
+    case types.FETCH_PRODUCT:
+      return {
+        product: action.payload,
+        filteredItems: action.payload,
+        loading: false,
+      };
+    case types.LOADING:
+      return {
+        ...state,
+        loading: !state.loading,
       };
     case types.FETCH_CATEGORIES:
       return {
