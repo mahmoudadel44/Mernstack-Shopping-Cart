@@ -16,6 +16,19 @@
   box-shadow: none;
 }
 
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  color: #000;
+}
+
+.allCards button {
+  box-shadow: none;
+  width: 290px;
+}
+
 @media (max-width: 776px) {
   .allCards {
     display: flex;
@@ -27,33 +40,56 @@
   }
 }
 .paginationBttns {
-  width: 80%;
-  height: 40px;
+  width: 87%;
+  height: 50px;
   list-style: none;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 30px;
 }
-
 .paginationBttns a {
-  padding: 10px;
-  margin: 8px;
-  border-radius: 5px;
-  border: 1px solid #2b2eff;
-  color: #2b2eff;
+  padding: 8px 14px;
+  margin: 4px;
+  border-radius: 4px;
+  color: #198754;
+  background-color: #fff;
+  border: 1px solid #198754;
   cursor: pointer;
 }
-
 .paginationBttns a:hover {
-  color: white;
-  background-color: #2b2eff;
+  border: 1px solid #198754;
+  color: #fff;
+  background-color: #198754;
+}
+.paginationBttns .paginationActive a {
+  color: #fff;
+  background-color: green;
+  border: 1px solid #034d2a;
+}
+.paginationBttns .paginationDisabled a {
+  color: #198754;
+  background-color: #bdb7b7;
 }
 
-.paginationActive a {
-  color: white;
-  background-color: #2b2eff;
+/* width */
+::-webkit-scrollbar {
+  width: 16px;
 }
 
-.paginationDisabled a {
-  color: grey;
-  background-color: grey;
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #bebebe;
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #232b41;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #353d53;
 }

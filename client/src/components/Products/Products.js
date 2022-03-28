@@ -9,7 +9,8 @@ import ProductCard from "../Cards/ProductCard";
 import Filters from "../Filters/Filters";
 import NotFound from "../../pages/NotFound";
 import Spinner from "../Spinner/Spinner";
-
+import Carousel from "../Carousel/Carousel";
+import Tabs from "../Tabs/Tabs";
 const Products = () => {
   const dispatch = useDispatch();
   const filteredProducts = useSelector((state) => state.Products.filteredItems);
@@ -17,7 +18,7 @@ const Products = () => {
 
   const [pageNumber, setPageNumber] = useState(0);
 
-  const productsPerPage = 3;
+  const productsPerPage = 4;
   const pagesVisited = pageNumber * productsPerPage;
 
   const pageCount = Math.ceil(filteredProducts.length / productsPerPage);
@@ -30,7 +31,6 @@ const Products = () => {
     dispatch(getProducts());
   }, []);
 
-
   if (!loading && !filteredProducts) {
     return <NotFound />;
   }
@@ -41,9 +41,9 @@ const Products = () => {
   console.log("allllll", filteredProducts);
   return (
     <>
-      <section className="allProducts">
+      <Carousel />
+      <section className="allProducts mt-5">
         <div className="container">
-          <h5 className="my-3 title">Latest Products</h5>
           <div className="row text-center">
             <div className="col-lg-8 col-md-7">
               <div className="row">
@@ -71,6 +71,7 @@ const Products = () => {
             disabledClassName={"paginationDisabled"}
             activeClassName={"paginationActive"}
           />
+          <Tabs />
         </div>
       </section>
     </>
