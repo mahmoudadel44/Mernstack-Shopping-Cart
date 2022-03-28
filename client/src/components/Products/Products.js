@@ -11,6 +11,7 @@ import NotFound from "../../pages/NotFound";
 import Spinner from "../Spinner/Spinner";
 import Carousel from "../Carousel/Carousel";
 import Tabs from "../Tabs/Tabs";
+import AllSettings from "../AllSettings/AllSettings";
 const Products = () => {
   const dispatch = useDispatch();
   const filteredProducts = useSelector((state) => state.Products.filteredItems);
@@ -71,6 +72,7 @@ const Products = () => {
             disabledClassName={"paginationDisabled"}
             activeClassName={"paginationActive"}
           />
+          <AllSettings />
           <Tabs />
         </div>
       </section>
