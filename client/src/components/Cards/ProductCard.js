@@ -14,7 +14,7 @@ const ProductCard = ({ productData }) => {
     width: 200,
     zoomWidth: 600,
     img: productData.image,
-    height: 180,
+    height: 170,
   };
 
   return (
