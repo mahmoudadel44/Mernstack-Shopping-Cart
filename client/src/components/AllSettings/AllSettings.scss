@@ -1,0 +1,18 @@
+.settings {
+  background-color: #eee;
+  border-radius: 5px;
+  min-width: 180px;
+  &:hover{
+      transform: scale(1.03);
+      transition: 0.5s all ease-in-out;
+  }
+  img {
+    transition: transform 0.7s ease-in-out;
+  }
+  img:hover {
+    transform: rotate(360deg);
+  }
+  span {
+    margin-left: 8px;
+  }
+}
