@@ -9,7 +9,19 @@ export const getProducts = () => async (dispatch) => {
       type: types.FETCH_PRODUCTS,
       payload: response.data,
     });
-    toast.success("getting successfully", { autoClose: 2000 });
+  } catch (err) {
+    toast.error(err);
+  }
+};
+////////////////////////////////////////////////////////////////////////////////////////
+
+export const getProduct = (id) => async (dispatch) => {
+  try {
+    const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+    dispatch({
+      type: types.FETCH_PRODUCT,
+      payload: response.data,
+    });
   } catch (err) {
     toast.error(err);
   }
@@ -26,7 +38,6 @@ export const getCategories = () => async (dispatch) => {
       type: types.FETCH_CATEGORIES,
       payload: response.data,
     });
-    toast.success("getting successfullyyyyyyyyyyyyyyyyyy", { autoClose: 2000 });
   } catch (err) {
     toast.error(err);
   }
@@ -43,7 +54,6 @@ export const filterCategories = (products, category) => async (dispatch) => {
       payload: category === "ALL" ? products : response.data,
       category,
     });
-    toast.success("getting successfully", { autoClose: 2000 });
   } catch (err) {
     toast.error(err);
   }
@@ -85,7 +95,6 @@ export const filterSort = (products, sort) => async (dispatch) => {
       payload: sort === "all" ? products : response.data,
       sort: sort,
     });
-    toast.success("getting successfully", { autoClose: 2000 });
   } catch (err) {
     toast.error(err);
   }

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Select } from "antd";
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -10,8 +9,6 @@ import {
 } from "../../redux/actions/ProductActions";
 
 const Filters = ({}) => {
-  const { Option } = Select;
-
   const products = useSelector((state) => state.Products.products);
   const categories = useSelector((state) => state.Products.categories);
   const filteredItems = useSelector((state) => state.Products.filteredItems);

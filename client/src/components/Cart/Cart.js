@@ -1,11 +1,8 @@
-import { Button } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../../css/Cart/Cart.css";
 import { removeFromCart } from "../../redux/actions/CartActions";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
 const Cart = () => {
-  const [showForm, setShowForm] = useState(false);
   const cartItems = useSelector((state) => state.Cart.cartItems);
 
   const dispatch = useDispatch();
@@ -43,19 +40,9 @@ const Cart = () => {
               return acc + p.price;
             }, 0)}
           </h6>
-          <div>
-            {" "}
-            <Button
-              type="primary"
-              primary="true"
-              onClick={() => setShowForm(true)}
-            >
-              Select Product
-            </Button>
-          </div>
+          <div> </div>
         </div>
       )}
-      {showForm && <CheckoutForm />}
     </>
   );
 };

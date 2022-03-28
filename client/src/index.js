@@ -5,7 +5,6 @@ import createStore from "./redux/store";
 
 import App from "./App";
 
-import "antd/dist/antd.css";
 import { PersistGate } from "redux-persist/integration/react";
 
 const { store, persistor } = createStore();
